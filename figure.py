@@ -7,7 +7,7 @@ from bokeh.models.widgets import Select, DateRangeSlider
 def newCaseFigure(source, dropdown, dateSlider):
 
     # list tools
-    TOOLS = "pan,wheel_zoom,reset"
+    TOOLS = "pan,reset"
 
     # set hover
     HOVER = HoverTool(
@@ -33,7 +33,7 @@ def newCaseFigure(source, dropdown, dateSlider):
 
     # It plots the line graph of the data in the source.
     figureNewCase.line('Date', 'NewCases',
-                       source=source)
+                       source=source, line_color="#FF0000")
 
     # A callback function. It is called when the value of the date range slider is changed.
     callback = CustomJS(args=dict(p=figureNewCase), code="""
@@ -52,7 +52,7 @@ def newDeathFigure(source, dropdown, dateSlider):
 
     # list unique location
     # list tools
-    TOOLS = "pan,wheel_zoom,reset"
+    TOOLS = "pan,reset"
 
     # set hover
     HOVER = HoverTool(
@@ -78,7 +78,7 @@ def newDeathFigure(source, dropdown, dateSlider):
 
     # It plots the line graph of the data in the source.
     figureNewDeaths.line('Date', 'NewDeaths',
-                         source=source)
+                         source=source, line_color="#000000")
 
     # A callback function. It is called when the value of the date range slider is changed.
     callback = CustomJS(args=dict(p=figureNewDeaths), code="""
@@ -96,7 +96,7 @@ def newDeathFigure(source, dropdown, dateSlider):
 def newRecoveredFigure(source, dropdown, dateSlider):
 
     # list tools
-    TOOLS = "pan,wheel_zoom,reset"
+    TOOLS = "pan,reset"
 
     # set hover
     HOVER = HoverTool(
